@@ -1,3 +1,6 @@
+import os
+import sys
+
 from PyQt6.QtCore import QRegularExpression
 from PyQt6.QtWidgets import QLineEdit
 
@@ -12,7 +15,7 @@ class PasswordEdit(QLineEdit):
         self.dReg = QRegularExpression("\\d")
         self.sReg = QRegularExpression("[^a-zA-Z0-9]")
         self.common = []
-        with open("custom_widgets/common_password.txt", "r", encoding='utf-8') as file:
+        with open(internalPath("custom_widgets/common_password.txt"), "r", encoding='utf-8') as file:
             self.common = file.read().splitlines()
 
     def checkPassword(self):
@@ -25,3 +28,11 @@ class PasswordEdit(QLineEdit):
         for key, value in zip(self.widget.recoms.keys(), checks):
             self.widget.setFit(key, value)
         self.widget.setStrength(sum([int(value) * 20 for value in checks]))
+
+
+def internalPath(path):
+    try:
+        basePath = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
+    except Exception:
+        basePath = os.path.dirname(os.path.abspath(__file__))
+    return os.path.join(basePath, path)
