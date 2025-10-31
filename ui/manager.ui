@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>850</width>
+    <height>430</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>600</width>
+    <height>200</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Another password manager</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout" stretch="3,5">
+    <item>
+     <widget class="QTableView" name="servicesColumn">
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>0</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QTableView" name="accountsColumn">
+      <property name="minimumSize">
+       <size>
+        <width>200</width>
+        <height>0</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>850</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuUser">
+    <property name="title">
+     <string>User</string>
+    </property>
+    <addaction name="logoutAction"/>
+   </widget>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="newServiceAction"/>
+    <addaction name="newAcoountAction"/>
+    <addaction name="separator"/>
+    <addaction name="editAction"/>
+    <addaction name="deleteAction"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuUser"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="newServiceAction">
+   <property name="text">
+    <string>New service</string>
+   </property>
+   <property name="shortcut">
+    <string/>
+   </property>
+  </action>
+  <action name="newAcoountAction">
+   <property name="text">
+    <string>New account</string>
+   </property>
+  </action>
+  <action name="settingsAction">
+   <property name="text">
+    <string>Settings</string>
+   </property>
+  </action>
+  <action name="logoutAction">
+   <property name="text">
+    <string>Log out</string>
+   </property>
+  </action>
+  <action name="editAction">
+   <property name="text">
+    <string>Edit</string>
+   </property>
+   <property name="toolTip">
+    <string>Edit</string>
+   </property>
+   <property name="shortcut">
+    <string extracomment="F2"/>
+   </property>
+   <property name="shortcutVisibleInContextMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="deleteAction">
+   <property name="text">
+    <string>Delete</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
