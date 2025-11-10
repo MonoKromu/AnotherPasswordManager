@@ -189,19 +189,19 @@ class ManagerWindow(QMainWindow, Ui_MainWindow):
                 self.refillAccounts()
 
     def deleteService(self):
-        accept = (QMessageBox.question(self, "Warning", f"Do you really want to delete "
+        reply = (QMessageBox.question(self, "Warning", f"Do you really want to delete "
                                         f"{self.servicesColumn.model().item(self.selectedRow, 1).text()}?",
                                         QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No))
-        if accept:
+        if reply == QMessageBox.StandardButton.Yes:
             self.connection.cursor().execute(f"DELETE FROM services WHERE id = ?",
                                              (self.selectedService, ))
             self.connection.commit()
             self.refillServices()
 
     def deleteAccount(self):
-        accept = (QMessageBox.question(self, "Warning", f"Do you really want to delete this account?",
+        reply = (QMessageBox.question(self, "Warning", f"Do you really want to delete this account?",
                                         QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No))
-        if accept:
+        if reply == QMessageBox.StandardButton.Yes:
             self.connection.cursor().execute(f"DELETE FROM accounts WHERE id = ?",
                                              (self.selectedAccount, ))
             self.connection.commit()
